@@ -1,0 +1,32 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">    
+{% endblock %}
+
+{% block content %}
+<div class="formwrapper">
+  <h1 class="title">Credit Scoring Model Inputs</h1>
+  <form method="POST" action="/inputs">
+    {{ form.hidden_tag() }} 
+    <div class="formwrapper2">  
+      <h2>Financial Features</h2>    
+      <div class="form-field">{{ form.input1.label }} {{ form.input1 }}</div>
+      <div class="form-field">{{ form.input2.label }} {{ form.input2 }}</div>
+      <div class="form-field">{{ form.input3.label }} {{ form.input3 }}</div>
+      <div class="form-field">{{ form.input4.label }} {{ form.input4 }}</div>
+      <div class="form-field">{{ form.input5.label }} {{ form.input5 }}</div>
+    </div>  
+    <div class="formwrapper3">
+      <h2>Location Features</h2>  
+      <div class="form-field">{{ form.input6.label }} {{ form.input6 }}</div>
+      <div class="form-field">{{ form.input7.label }} {{ form.input7 }}</div>
+      <div class="form-field">{{ form.input8.label }} {{ form.input8 }}</div>
+      <div class="form-field">{{ form.input9.label }} {{ form.input9 }}</div>      
+    </div> 
+    <div class="sbutton">
+    {{ form.submit }}   
+    </div> 
+  </form>     
+</div>
+{% endblock %}

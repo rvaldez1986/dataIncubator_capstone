@@ -1,0 +1,20 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/success.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="success-wrapper">
+  <h1>SUCCESS!</h1>
+  <p>You've submitted a valid form. Your mother would be very proud of you.</p>  
+</div>
+<div class="chart" id="bargraph">
+    <script>
+        var graphs = {{plot | safe}};
+        Plotly.plot('bargraph',graphs,{});
+    </script>        
+ </div>
+{% endblock %}
